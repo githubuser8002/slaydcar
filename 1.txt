@@ -1,8 +1,7 @@
-Машина:  Dodge challenger demon
+Машина:  Dodge challenger Demon
 
 Двигатель:  6.2 AT SRT Demon
-
-Объем:  6.2 л 
+Объем:  6.2 л
 
 Мощность:  840 л. с.
 

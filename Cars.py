@@ -11,13 +11,18 @@ win = QWidget()
 win.resize(700,700)
 win.setWindowTitle('Information of car')
 #win.setWindowIcon()
-
 label_caption = QLabel('Информатор про автомобілі')
-
+label_caption.setStyleSheet('''
+                        font-size:30px;
+''')
 label_t = QLabel('')
 label_t.setFixedSize(500,400)
+label_t.setStyleSheet('''
+                        font-size:18px;
+                        color:black;
+''')
 label_p = QLabel('')
-label_p.setFixedSize(500,500)
+label_p.setFixedSize(500,400)
 
 left = QPushButton('<<<')
 right = QPushButton('>>>')
@@ -45,8 +50,23 @@ pixmapimage = pixmapimage.scaled(500,700,Qt.KeepAspectRatio)
 label_p.setPixmap(pixmapimage)
 label_p.show()
 
-
 i = 1
+def button_left():
+    global i
+    i=i-1
+    if i == 0:
+        i=4
+    t=open(str(i)+'.txt',encoding='utf-8')
+    label_t.setText(t.read())
+    
+    label_p.hide()
+    pixmapimage = QPixmap(str(i)+'.jpg')
+    w,h = label_p.width(),label_p.height()
+    pixmapimage = pixmapimage.scaled(500,700,Qt.KeepAspectRatio)
+    label_p.setPixmap(pixmapimage)
+    label_p.show()
+left.clicked.connect(button_left)
+
 def button_right():
     global i
     i=i+1
